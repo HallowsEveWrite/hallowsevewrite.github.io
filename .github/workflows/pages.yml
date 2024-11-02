@@ -35,6 +35,10 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
       - run: yarn
       - run: yarn build
+      - run: |
+          touch .env
+          echo 'EMAILOCTOPUS_API_KEY=${{ secrets.EMAILOCTOPUS_API_KEY }}' >> .env
+          echo 'EMAILOCTOPUS_LIST_ID=${{ secrets.EMAILOCTOPUS_LIST_ID }}' >> .env
         env:
           EXPORT: 1
           UNOPTIMIZED: 1
