@@ -34,7 +34,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
       - run: | # Secrets needed on the server
-          touch .env.production
+          touch .env
           echo "EMAILOCTOPUS_API_KEY=${{secrets.EMAILOCTOPUS_API_KEY}}" >> .env
           echo "EMAILOCTOPUS_LIST_ID=${{secrets.EMAILOCTOPUS_LIST_ID}}" >> .env
       - run: yarn
