@@ -37,6 +37,7 @@ jobs:
           touch .env
           echo 'EMAILOCTOPUS_API_KEY=${{ secrets.EMAILOCTOPUS_API_KEY }}' >> .env
           echo 'EMAILOCTOPUS_LIST_ID=${{ secrets.EMAILOCTOPUS_LIST_ID }}' >> .env
+          cat .env
       - run: yarn
       - run: yarn build
         env:
