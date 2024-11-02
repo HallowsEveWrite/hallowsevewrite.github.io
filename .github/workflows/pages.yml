@@ -33,18 +33,12 @@ jobs:
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
-      - run: | # Secrets needed on the server
-          touch .env
-          echo "EMAILOCTOPUS_API_KEY=${{secrets.EMAILOCTOPUS_API_KEY}}" >> .env
-          echo "EMAILOCTOPUS_LIST_ID=${{secrets.EMAILOCTOPUS_LIST_ID}}" >> .env
       - run: yarn
       - run: yarn build
         env:
           EXPORT: 1
           UNOPTIMIZED: 1
           BASE_PATH: ${{ steps.configurepages.outputs.base_path }}
-          EMAILOCTOPUS_API_KEY: ${{ secrets.EMAILOCTOPUS_API_KEY }}
-          EMAILOCTOPUS_LIST_ID: ${{ secrets.EMAILOCTOPUS_LIST_ID }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
