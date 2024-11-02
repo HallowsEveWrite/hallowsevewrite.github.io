@@ -13,6 +13,7 @@ import {
   Wattpad,
   DeviantArt,
   Bluesky,
+  Goodreads,
 } from './icons'
 
 const components = {
@@ -30,6 +31,7 @@ const components = {
   bluesky: Bluesky,
   deviantart: DeviantArt,
   wattpad: Wattpad,
+  goodreads: Goodreads,
 }
 
 type SocialIconProps = {

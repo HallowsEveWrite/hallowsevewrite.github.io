@@ -141,6 +141,7 @@ export const Authors = defineDocumentType(() => ({
     bluesky: { type: 'string' },
     deviantart: { type: 'string' },
     wattpad: { type: 'string' },
+    goodreads: { type: 'string' },
     layout: { type: 'string' },
   },
   computedFields,
